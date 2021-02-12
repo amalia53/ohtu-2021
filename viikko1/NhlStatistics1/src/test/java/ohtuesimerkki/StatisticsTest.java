@@ -1,5 +1,7 @@
 package ohtuesimerkki;
 
+import static org.junit.Assert.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.*;
@@ -27,5 +29,28 @@ public class StatisticsTest {
 		stats = new Statistics(readerStub);
 	}
 	
+	@Test
+	public void searchReturnsCorrectPlayer() {
+		assertTrue(stats.search("Semenko").getName().equals("Semenko"));
+	}
 	
+	@Test
+	public void searchReturnsNullIfNotFound() {
+		assertEquals(null, stats.search("Amalia"));
+	}
+	
+	@Test
+	public void teamReturnsCorrectSizeList() {
+		assertEquals(3, stats.team("EDM").size());
+	}
+	
+	@Test
+	public void topScorersReturnRightAmountOfPlayers() {
+		assertEquals(3, stats.topScorers(3).size());
+	}
+	
+	@Test
+	public void topScorerReturnsBest() {
+		assertTrue(stats.topScorers(1).get(0).getName().equals("Gretzky"));
+	}
 }

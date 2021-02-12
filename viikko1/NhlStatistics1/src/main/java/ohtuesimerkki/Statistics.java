@@ -8,11 +8,6 @@ import java.util.List;
 public class Statistics {
 
     private List<Player> players;
-
-    public Statistics() {
-        Reader reader = new PlayerReader("https://nhlstatisticsforohtu.herokuapp.com/players.txt");
-        players = reader.getPlayers();       
-    }
     
     public Statistics(Reader r) {
         Reader reader = r;
@@ -46,7 +41,7 @@ public class Statistics {
         ArrayList<Player> topScorers = new ArrayList<Player>();
         Iterator<Player> playerIterator = players.iterator();
         
-        while (howMany>=0) {
+        while (howMany>0) {
             topScorers.add( playerIterator.next() );            
             howMany--;
         }
