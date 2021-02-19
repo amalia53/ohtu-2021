@@ -1,11 +1,17 @@
 package ohtu.laskin;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Component;
+
+@Component
 public class Laskin {
+	
+	@Autowired
     private IO io;
 
-    public Laskin(IO io) {
-        this.io = io;
-    }
+//    public Laskin(IO io) {
+//        this.io = io;
+//    }
     
     public void suorita(){
         while( true ) {
