@@ -5,6 +5,8 @@ plugins {
     id 'build-dashboard'
 }
 
+mainClassName = 'ohtu.Main'
+
 repositories {
     jcenter()
     mavenCentral()
@@ -41,9 +43,5 @@ dependencies {
 test {
     testLogging.showStandardStreams = true
     systemProperties System.getProperties()
-}
-
-application {
-    mainClass = 'ohtu.Main'
 }
 
