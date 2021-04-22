@@ -5,12 +5,15 @@ import javafx.scene.control.TextField;
 
 public class Nollaa extends Komento{
 
+	int arvo;
+	
 	public Nollaa(TextField tuloskentta, TextField syotekentta, Button nollaa, Button undo, Sovelluslogiikka sovellus) {
 		super(tuloskentta, syotekentta, nollaa, undo, sovellus);
 	}
 
 	@Override
 	public void suorita() {
+		this.arvo = Integer.parseInt(tuloskentta.getText());
 		sovellus.nollaa();
 		syotekentta.setText("");
         tuloskentta.setText("" + sovellus.tulos());
@@ -19,7 +22,8 @@ public class Nollaa extends Komento{
 
 	@Override
 	public void peru() {
-		
+		sovellus.plus(arvo);
+		tuloskentta.setText("" + arvo);
 	}
 
 }
